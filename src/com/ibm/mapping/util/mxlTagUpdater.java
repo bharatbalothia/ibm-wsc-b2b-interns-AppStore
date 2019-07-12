@@ -2,10 +2,14 @@ package com.ibm.mapping.util;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.io.Writer;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -26,6 +30,7 @@ import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
@@ -106,8 +111,13 @@ public final class mxlTagUpdater {
 
 		try {
 			DocumentBuilder documentBuilder = dbFactory.newDocumentBuilder();
-			InputSource is = new InputSource(new FileReader(file));
+			//InputSource is = new InputSource(new FileReader(file));
 			Document doc = null;
+			//is.setEncoding("UTF-8");
+			InputStream inputStream= new FileInputStream(file);
+	        Reader reader = new InputStreamReader(inputStream,"UTF-8");
+	        InputSource is = new InputSource(reader);
+	        is.setEncoding("UTF-8");
 			doc = documentBuilder.parse(is);doc.normalize();
 			
 			NodeList mapperList = doc.getElementsByTagName("Mapper");
@@ -155,6 +165,8 @@ public final class mxlTagUpdater {
 			}
 			
 			Transformer xformer = TransformerFactory.newInstance().newTransformer();
+			xformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+			System.out.println("Encoding is UTF-8");
 	        xformer.transform(new DOMSource(doc), new StreamResult(new File(outputDirectory+fileName)));	
 			//System.out.println("hmap.size()=>"+hmap.size());
 			
