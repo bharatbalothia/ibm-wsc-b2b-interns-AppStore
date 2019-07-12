@@ -1,8 +1,7 @@
 # B2B APP Store
 
-Instructions :
+Deployment Instructions for Server:
 
 1) Load the project in Eclipse
-2) Make the changes which ever you want to the code.
-3) Export a War file from Eclipse.
-4) Deploy the War File on the Tomcat server.
+2) Export a War file from Eclipse.
+3) Deploy the War File on the server of your choice.
