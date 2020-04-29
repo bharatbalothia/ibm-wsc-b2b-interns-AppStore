@@ -11,7 +11,7 @@ public interface Constants {
 	// String GROUP = "RSC Map Change Team,MAP Dev & Support";
 
 	// String GROUP = "MAP Dev & Support";
-	String GROUP = "RSC Map Change Team,PER_RSC,RSC SsaS Map Development,Implementation_RSC,NAM_Map_Team,EMEA_Map_Team,B2B_OnPrem,MAP Dev & Support,Mail Box Services,RSC_BO";
+	String GROUP = "RSC_B2B";
 	String LOGON_ERROR_VALUE = "<p style=\"color:red;margin-left:8px\"><strong>Invalid UserName Or Password Or You do not have access to AppStore application. If you believe you need access, please contact Manjit S Sodhi/India/IBM with a business justification.</strong></p>";
 	String LDAP_ERROR_VALUE = "<p style=\"color:red;margin-left:8px\">There is an error in LDAP Server";
 	String jdbcClassName = "com.ibm.db2.jcc.DB2Driver";
